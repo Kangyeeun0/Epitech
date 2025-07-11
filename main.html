@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KPOP FAN COMMUNITY - K-pop信息 | 电子宠物 | 周边交易</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="group.css" />
+    </head>
+    <body>
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <h1>KPOP LOVE</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#kpop" class="active">K-pop信息</a>
+                <a href="#epet">电子宠物</a>
+                <a href="#market">周边交易</a>
+                <a href="#about">关于我们</a>
+            </div>
+            <div class="user-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </nav>
+
+        <!-- 主内容区 -->
+        <div class="container">
+            <!-- 英雄区域 -->
+            <section class="hero">
+                <h2>欢迎来到K-Pop粉丝社区</h2>
+                <p>探索你最喜欢的K-pop团体信息，养育专属电子宠物，并与其他粉丝交换收藏品</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem">
+                    <button class="btn btn-primary">开始探索</button>
+                    <button class="btn btn-outline">了解更多</button>
+                </div>
+            </section>
+
+            <!-- 功能选项卡 -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="kpop">K-pop信息</button>
+                <button class="tab-btn" data-tab="epet">电子宠物</button>
+                <button class="tab-btn" data-tab="market">周边交易</button>
+            </div>
+
+            <!-- K-pop信息部分 -->
+            <div id="kpop" class="tab-content active">
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="搜索你喜欢的K-pop团体..." />
+                        <button>搜索</button>
+                    </div>
+                    <div class="filter-btns">
+                        <button class="filter-btn active">全部</button>
+                        <button class="filter-btn">女团</button>
+                        <button class="filter-btn">男团</button>
+                        <button class="filter-btn">热门</button>
+                    </div>
+                </div>
+
+                <div class="groups-container">
+                    <!-- 团体卡片1 -->
+                    <div class="group-card">
+                        <div
+                            class="group-img"
+                            style="
+                                background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+                            "
+                        ></div>
+                        <div class="group-info">
+                            <h3>BLACKPINK</h3>
+                            <span class="group-type female">女团</span>
+                            <p class="group-members">成员: Jisoo, Jennie, Rosé, Lisa</p>
+                            <p>YG娱乐旗下四人女子团体，以强烈的舞台表现力和国际知名度闻名。</p>
+                        </div>
+                    </div>
+
+                    <!-- 团体卡片2 -->
+                    <div class="group-card">
+                        <div
+                            class="group-img"
+                            style="
+                                background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+                            "
+                        ></div>
+                        <div class="group-info">
+                            <h3>BTS</h3>
+                            <span class="group-type male">男团</span>
+                            <p class="group-members">成员: RM, Jin, Suga, J-Hope, Jimin, V, Jungkook</p>
+                            <p>Big Hit娱乐旗下七人男子团体，在全球范围内拥有巨大影响力，音乐传递积极信息。</p>
+                        </div>
+                    </div>
+
+                    <!-- 团体卡片3 -->
+                    <div class="group-card">
+                        <div
+                            class="group-img"
+                            style="
+                                background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+                            "
+                        ></div>
+                        <div class="group-info">
+                            <h3>TWICE</h3>
+                            <span class="group-type female">女团</span>
+                            <p class="group-members">
+                                成员: Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, Tzuyu
+                            </p>
+                            <p>JYP娱乐旗下九人女子团体，以甜美形象和中毒性旋律著称，拥有大量热门歌曲。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 电子宠物部分 -->
+            <div id="epet" class="tab-content">
+                <div class="pet-container">
+                    <div class="pet-display">
+                        <div class="pet-circle">
+                            <div class="pet">🐰</div>
+                        </div>
+                        <div class="pet-stats">
+                            <div class="stat">
+                                <div class="stat-name">饥饿值</div>
+                                <div class="stat-value">75%</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-name">心情值</div>
+                                <div class="stat-value">90%</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-name">能量值</div>
+                                <div class="stat-value">60%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pet-actions">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--accent)">照顾你的宠物</h3>
+                        <p style="margin-bottom: 1.5rem; color: #ccc">
+                            与你的宠物互动，提升它的各项数值。每天登录可获得额外奖励！
+                        </p>
+
+                        <div class="action-buttons">
+                            <button class="action-btn">
+                                <i class="fas fa-utensils"></i>
+                                <span>喂食</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-gamepad"></i>
+                                <span>玩耍</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-bath"></i>
+                                <span>清洁</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-bed"></i>
+                                <span>休息</span>
+                            </button>
+                        </div>
+
+                        <div
+                            style="
+                                margin-top: 2rem;
+                                background: rgba(255, 255, 255, 0.05);
+                                padding: 1.5rem;
+                                border-radius: 10px;
+                            "
+                        >
+                            <h4 style="margin-bottom: 1rem; color: var(--primary)">宠物状态</h4>
+                            <p>
+                                <i class="fas fa-heart" style="color: var(--primary); margin-right: 10px"></i>
+                                你的宠物今天很开心！
+                            </p>
+                            <p><i class="fas fa-star" style="color: gold; margin-right: 10px"></i> 连续登录: 5天</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 周边交易部分 -->
+            <div id="market" class="tab-content">
+                <div class="marketplace">
+                    <!-- 商品1 -->
+                    <div class="product-card">
+                        <div
+                            class="product-img"
+                            style="
+                                background-image: url('https://images.unsplash.com/photo-1578946928905-8c9b1a1a6c8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80');
+                            "
+                        ></div>
+                        <div class="product-info">
+                            <h3>BTS官方应援棒</h3>
+                            <p>正版ARMY BOMB，支持蓝牙连接和颜色同步</p>
+                            <div class="product-price">¥320</div>
+                            <div class="product-actions">
+                                <button class="btn btn-outline" style="padding: 0.5rem 1rem">详情</button>
+                                <button class="btn btn-primary" style="padding: 0.5rem 1.5rem">购买</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品2 -->
+                    <div class="product-card">
+                        <div
+                            class="product-img"
+                            style="
+                                background-image: url('https://images.unsplash.com/photo-1592402848343-019f403a1e7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80');
+                            "
+                        ></div>
+                        <div class="product-info">
+                            <h3>BLACKPINK签名专辑</h3>
+                            <p>THE ALBUM 限量签名版，附认证证书</p>
+                            <div class="product-price">¥580</div>
+                            <div class="product-actions">
+                                <button class="btn btn-outline" style="padding: 0.5rem 1rem">详情</button>
+                                <button class="btn btn-primary" style="padding: 0.5rem 1.5rem">购买</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品3 -->
+                    <div class="product-card">
+                        <div
+                            class="product-img"
+                            style="
+                                background-image: url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80');
+                            "
+                        ></div>
+                        <div class="product-info">
+                            <h3>TWICE官方海报套装</h3>
+                            <p>包含9位成员个人海报及团体海报</p>
+                            <div class="product-price">¥150</div>
+                            <div class="product-actions">
+                                <button class="btn btn-outline" style="padding: 0.5rem 1rem">详情</button>
+                                <button class="btn btn-primary" style="padding: 0.5rem 1.5rem">购买</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 商品4 -->
+                    <div class="product-card">
+                        <div
+                            class="product-img"
+                            style="
+                                background-image: url('https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80');
+                            "
+                        ></div>
+                        <div class="product-info">
+                            <h3>EXO官方钥匙扣</h3>
+                            <p>成员随机款，高品质金属材质</p>
+                            <div class="product-price">¥85</div>
+                            <div class="product-actions">
+                                <button class="btn btn-outline" style="padding: 0.5rem 1rem">详情</button>
+                                <button class="btn btn-primary" style="padding: 0.5rem 1.5rem">购买</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>
+                        KPOP FAN
+                        COMMUNITY是一个为全球K-pop粉丝打造的互动平台，提供最新团体信息、电子宠物养成和周边交易服务。
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">K-pop信息</a></li>
+                        <li><a href="#">电子宠物</a></li>
+                        <li><a href="#">周边交易</a></li>
+                        <li><a href="#">粉丝论坛</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 首尔市江南区狎鸥亭路123号</p>
+                    <p><i class="fas fa-phone"></i> +82 2-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> contact@kpopfancommunity.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 KPOP FAN COMMUNITY. 保留所有权利。</p>
+            </div>
+        </footer>
+
+        <script>
+            // 选项卡切换功能
+            document.addEventListener('DOMContentLoaded', function () {
+                const tabBtns = document.querySelectorAll('.tab-btn');
+                const tabContents = document.querySelectorAll('.tab-content');
+
+                tabBtns.forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        // 移除所有按钮的active类
+                        tabBtns.forEach((b) => b.classList.remove('active'));
+                        // 添加当前按钮的active类
+                        btn.classList.add('active');
+
+                        // 隐藏所有内容
+                        tabContents.forEach((content) => {
+                            content.classList.remove('active');
+                        });
+
+                        // 显示对应内容
+                        const tabId = btn.getAttribute('data-tab');
+                        document.getElementById(tabId).classList.add('active');
+                    });
+                });
+
+                // 电子宠物互动效果
+                const pet = document.querySelector('.pet');
+                const actionBtns = document.querySelectorAll('.action-btn');
+
+                actionBtns.forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        // 宠物动画效果
+                        pet.style.transform = 'scale(1.1)';
+                        setTimeout(() => {
+                            pet.style.transform = 'scale(0.9)';
+                        }, 300);
+
+                        // 显示反馈消息
+                        const action = btn.querySelector('span').textContent;
+                        const feedback = document.createElement('div');
+                        feedback.textContent = `你刚刚进行了${action}操作！`;
+                        feedback.style.position = 'fixed';
+                        feedback.style.bottom = '20px';
+                        feedback.style.right = '20px';
+                        feedback.style.background = 'var(--primary)';
+                        feedback.style.color = 'white';
+                        feedback.style.padding = '10px 20px';
+                        feedback.style.borderRadius = '5px';
+                        feedback.style.zIndex = '1000';
+                        document.body.appendChild(feedback);
+
+                        setTimeout(() => {
+                            feedback.remove();
+                        }, 2000);
+                    });
+                });
+
+                // 过滤按钮效果
+                const filterBtns = document.querySelectorAll('.filter-btn');
+                filterBtns.forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        filterBtns.forEach((b) => b.classList.remove('active'));
+                        btn.classList.add('active');
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
