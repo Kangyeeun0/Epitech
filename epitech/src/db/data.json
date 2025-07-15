@@ -1,1 +1,7 @@
-{}
+{
+    "members": [
+        { "memName": "강예은", "memId": "yeeun32", "memPw": "1234" },
+        { "memName": "Lynn", "memId": "yulingge14", "memPw": "8888" },
+        { "memName": "Weichen", "memId": "weichen111", "memPw": "8888" }
+    ]
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Merchandise() {
     return (
-        <div id="market" className="tab-content">
+        <div id="market">
             <div className="marketplace">
                 {/* Product 1 */}
                 <div className="product-card">
