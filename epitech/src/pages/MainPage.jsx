@@ -5,8 +5,10 @@ import KpopInfo from './KpopInfo';
 import Epet from './Epet';
 import Merchandise from './Merchandise';
 import './mainPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const App = () => {
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('kpop');
 
     return (
@@ -41,9 +43,9 @@ const App = () => {
                     <a href="#about">About Us</a>
                 </div>
                 <div className="user-actions">
-                    <a href="Login/login.html" className="btn btn-outline">
+                    <button className="btn btn-outline" onClick={() => navigate('/login')}>
                         Login
-                    </a>
+                    </button>
                     <button className="btn btn-primary">Register</button>
                 </div>
             </nav>
