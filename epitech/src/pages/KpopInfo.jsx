@@ -8,7 +8,7 @@ const groupsData = [
         members: ['Jisoo', 'Jennie', 'Rosé', 'Lisa'],
         description:
             'A four-member girl group under YG Entertainment, known for their powerful stage presence and global popularity.',
-        imgUrl: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80',
+        imgUrl: `/picture/blackpink.jpeg`, 
     },
     {
         id: 2,
