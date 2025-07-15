@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPOP FAN COMMUNITY - K-pop Info | E-Pet | Merchandise Exchange</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-music"></i>
+            <h1>KPOP FAN COMMUNITY</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#kpop" class="active">K-pop Info</a>
+            <a href="#epet">E-Pet</a>
+            <a href="#market">Merchandise</a>
+            <a href="#about">About Us</a>
+        </div>
+        <div class="user-actions">
+            <button class="btn btn-outline">Login</button>
+            <button class="btn btn-primary">Register</button>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Welcome to K-Pop Fan Community</h2>
+            <p>Discover your favorite K-pop groups, raise your own e-pet, and exchange merchandise with other fans</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+                <button class="btn btn-primary">Explore Now</button>
+                <button class="btn btn-outline">Learn More</button>
+            </div>
+        </section>
+        
+        
+
+        <!-- Feature Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="kpop">K-pop Info</button>
+            <button class="tab-btn" data-tab="epet">E-Pet</button>
+            <button class="tab-btn" data-tab="market">Merchandise</button>
+        </div>
+        
+        <!-- K-pop Information Section -->
+        <div id="kpop" class="tab-content active">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search for your favorite K-pop group...">
+                    <button>Search</button>
+                </div>
+                <div class="filter-btns">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Girl Groups</button>
+                    <button class="filter-btn">Boy Groups</button>
+                    <button class="filter-btn">Popular</button>
+                </div>
+            </div>
+            
+            <div class="groups-container">
+                <!-- Group Card 1 -->
+                <div class="group-card">
+                    <div class="group-img" style="background-image: url('picture/blackpink.jpeg');"></div>s
+                    <div class="group-info">
+                        <h3>BLACKPINK</h3>
+                        <span class="group-type female">Girl Group</span>
+                        <p class="group-members">Members: Jisoo, Jennie, Rosé, Lisa</p>
+                        <p>A four-member girl group under YG Entertainment, known for their powerful stage presence and global popularity.</p>
+                    </div>
+                </div>
+                
+                <!-- Group Card 2 -->
+                <div class="group-card">
+                    <div class="group-img" style="background-image: url('picture/bts.jpeg')"></div>
+                    <div class="group-info">
+                        <h3>BTS</h3>
+                        <span class="group-type male">Boy Group</span>
+                        <p class="group-members">Members: RM, Jin, Suga, J-Hope, Jimin, V, Jungkook</p>
+                        <p>A seven-member boy group under Big Hit Entertainment with massive global influence, spreading positive messages through their music.</p>
+                    </div>
+                </div>
+
+                <div class="group-card">
+                    <div class="group-img" style="background-image: url('picture/svt.jpeg')"></div>
+                    <div class="group-info">
+                        <h3>SEVENTEEN</h3>
+                        <span class="group-type male">Boy Group</span>
+                        <p class="group-members">Members: S.Coups, Jeonghan, Joshua, Jun, Hoshi, Wonwoo, Woozi, DK, Mingyu, The8, Seungkwan, Vernon, and Dino</p>
+                        <p>A thirteen-member boy group under Big Hit Entertainment with massive global influence, spreading positive messages through their music.</p>
+                    </div>
+                </div>
+                
+                <!-- Group Card 3 -->
+                <div class="group-card">
+                    <div class="group-img" style="background-image: url('picture/twice.jpg')"></div>
+                    <div class="group-info">
+                        <h3>TWICE</h3>
+                        <span class="group-type female">Girl Group</span>
+                        <p class="group-members">Members: Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, Tzuyu</p>
+                        <p>A nine-member girl group under JYP Entertainment, famous for their cute concepts and addictive songs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- E-Pet Section -->
+        <div id="epet" class="tab-content">
+            <div class="pet-container">
+                <div class="pet-display">
+                    <div class="pet-circle">
+                        <div class="pet">🐰</div>
+                    </div>
+                    <div class="pet-stats">
+                        <div class="stat">
+                            <div class="stat-name">Hunger</div>
+                            <div class="stat-value">75%</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-name">Happiness</div>
+                            <div class="stat-value">90%</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-name">Energy</div>
+                            <div class="stat-value">60%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pet-actions">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--accent);">Take Care of Your Pet</h3>
+                    <p style="margin-bottom: 1.5rem; color: #ccc;">Interact with your pet to increase its stats. Log in daily for extra rewards!</p>
+                    
+                    <div class="action-buttons">
+                        <button class="action-btn">
+                            <i class="fas fa-utensils"></i>
+                            <span>Feed</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Play</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-bath"></i>
+                            <span>Clean</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-bed"></i>
+                            <span>Rest</span>
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 10px;">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary);">Pet Status</h4>
+                        <p><i class="fas fa-heart" style="color: var(--primary); margin-right: 10px;"></i> Your pet is happy today!</p>
+                        <p><i class="fas fa-star" style="color: gold; margin-right: 10px;"></i> Login Streak: 5 days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Merchandise Section -->
+        <div id="market" class="tab-content">
+            <div class="marketplace">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1578946928905-8c9b1a1a6c8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')"></div>
+                    <div class="product-info">
+                        <h3>BTS Official Lightstick</h3>
+                        <p>Authentic ARMY BOMB with Bluetooth connectivity and color synchronization</p>
+                        <div class="product-price">$45</div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Details</button>
+                            <button class="btn btn-primary" style="padding: 0.5rem 1.5rem;">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1592402848343-019f403a1e7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')"></div>
+                    <div class="product-info">
+                        <h3>BLACKPINK Signed Album</h3>
+                        <p>Limited edition signed "THE ALBUM" with certificate of authenticity</p>
+                        <div class="product-price">$85</div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Details</button>
+                            <button class="btn btn-primary" style="padding: 0.5rem 1.5rem;">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80')"></div>
+                    <div class="product-info">
+                        <h3>TWICE Official Poster Set</h3>
+                        <p>Includes individual posters of all 9 members and a group poster</p>
+                        <div class="product-price">$22</div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Details</button>
+                            <button class="btn btn-primary" style="padding: 0.5rem 1.5rem;">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')"></div>
+                    <div class="product-info">
+                        <h3>EXO Official Keychain</h3>
+                        <p>Random member design, high-quality metal material</p>
+                        <div class="product-price">$12</div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Details</button>
+                            <button class="btn btn-primary" style="padding: 0.5rem 1.5rem;">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>KPOP FAN COMMUNITY is a platform for global K-pop fans, providing group information, e-pet raising, and merchandise exchange services.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">K-pop Info</a></li>
+                    <li><a href="#">E-Pet</a></li>
+                    <li><a href="#">Merchandise</a></li>
+                    <li><a href="#">Fan Forum</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Apgujeong-ro, Gangnam-gu, Seoul</p>
+                <p><i class="fas fa-phone"></i> +82 2-1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contact@kpopfancommunity.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 KPOP FAN COMMUNITY. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to current button
+                    btn.classList.add('active');
+                    
+                    // Hide all content
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show corresponding content
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // E-Pet interaction effects
+            const pet = document.querySelector('.pet');
+            const actionBtns = document.querySelectorAll('.action-btn');
+            
+            actionBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Pet animation effect
+                    pet.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        pet.style.transform = 'scale(0.9)';
+                    }, 300);
+                    
+                    // Show feedback message
+                    const action = btn.querySelector('span').textContent;
+                    const feedback = document.createElement('div');
+                    feedback.textContent = `You just ${action} your pet!`;
+                    feedback.style.position = 'fixed';
+                    feedback.style.bottom = '20px';
+                    feedback.style.right = '20px';
+                    feedback.style.background = 'var(--primary)';
+                    feedback.style.color = 'white';
+                    feedback.style.padding = '10px 20px';
+                    feedback.style.borderRadius = '5px';
+                    feedback.style.zIndex = '1000';
+                    document.body.appendChild(feedback);
+                    
+                    setTimeout(() => {
+                        feedback.remove();
+                    }, 2000);
+                });
+            });
+            
+            // Filter button effects
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
