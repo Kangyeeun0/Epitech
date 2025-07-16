@@ -1,0 +1,40 @@
+.button {
+    /* 基础样式 */
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    
+    /* 去除默认按钮样式 */
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    
+    /* 初始状态 */
+    transform: scale(1);
+}
+
+.button:hover {
+    /* 悬停效果 */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #cccccc;
+}
+
+.button:active {
+    /* 点击效果 */
+    transform: scale(0.98);
+}
+
