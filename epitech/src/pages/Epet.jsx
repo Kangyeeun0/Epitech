@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import './Epet.css';
 
@@ -181,6 +182,7 @@ const Epet = () => {
             <StatBar name="Happiness" value={petStats.happiness} icon="fa-smile" />
             <StatBar name="Energy" value={petStats.energy} icon="fa-bolt" />
           </div>
+
         </div>
 
         <div className="pet-actions">

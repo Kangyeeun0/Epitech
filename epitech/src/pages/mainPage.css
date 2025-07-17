@@ -19,6 +19,16 @@ body {
     color: var(--light);
     min-height: 100vh;
     overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-header {
+    background: rgba(26, 26, 46, 0.9);
+    width: 1260px;
+    padding: 20px;
+    margin-bottom: 50px;
 }
 
 /* 导航栏样式 */
@@ -53,6 +63,7 @@ body {
     background-clip: text;
     color: transparent;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -68,6 +79,7 @@ body {
     position: relative;
     padding: 5px 0;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-links a:hover {
@@ -320,14 +332,14 @@ body {
 }
 
 /* 电子宠物部分 */
-.pet-container {
+/* .pet-container {
     display: flex;
     gap: 3rem;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     padding: 2rem;
-}
+} */
 
 .pet-display {
     flex: 1;

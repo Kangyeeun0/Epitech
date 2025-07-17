@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeroSection from './HeroSection';
 import Tabs from './Tabs';
 import KpopInfo from './KpopInfo';
@@ -11,58 +11,18 @@ const App = () => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('kpop');
     const isLogin = localStorage.getItem('login');
+    useEffect(() => {
+        console.log(activeTab);
+    }, [activeTab]);
 
     return (
         <>
-            <nav className="navbar">
-                <div className="logo">
-                    <i className="fas fa-music"></i>
-                    <h1>KPOP FAN COMMUNITY</h1>
-                </div>
-                <div className="nav-links">
-                    <a
-                        href="#kpop"
-                        className={activeTab === 'kpop' ? 'active' : ''}
-                        onClick={() => setActiveTab('kpop')}
-                    >
-                        K-pop Info
-                    </a>
-                    <a
-                        href="#epet"
-                        className={activeTab === 'epet' ? 'active' : ''}
-                        onClick={() => setActiveTab('epet')}
-                    >
-                        E-Pet
-                    </a>
-                    <a
-                        href="#market"
-                        className={activeTab === 'market' ? 'active' : ''}
-                        onClick={() => setActiveTab('market')}
-                    >
-                        Merchandise
-                    </a>
-                    <a href="#about">About Us</a>
-                </div>
-                {isLogin ? (
-                    ''
-                ) : (
-                    <div className="user-actions">
-                        <button className="btn btn-outline" onClick={() => navigate('/login')}>
-                            Login
-                        </button>
-                        <button className="btn btn-primary" onClick={() => navigate('/register')}>
-                            Register
-                        </button>
-                    </div>
-                )}
-            </nav>
-
             <div className="container">
                 <HeroSection />
                 <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 {activeTab === 'kpop' && <KpopInfo />}
-                {activeTab === 'epet' && <Epet />}
+                {activeTab === 'epet' && <Epet activeTab={activeTab} setActiveTab={setActiveTab} />}
                 {activeTab === 'market' && <Merchandise />}
             </div>
 
