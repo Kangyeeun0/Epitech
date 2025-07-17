@@ -3,21 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>互动电子宠物系统</title>
+    <title>Your Onl!ne Pet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="epet.css">
 </head>
+
 <body>
     <header>
-        <h1>电子宠物</h1>
+        <h1>Your Onl!ne Pet</h1>
         <p class="subtitle">Have fun and take care of your pet!</p>
     </header>
+
+
+
+    <form action="#">
+        <label for="pet">Choose your pet:<br></label>
+            <select name="pet type" id="pet">
+                <option value="🐰">🐰</option>
+                <option value="🐱">🐱</option>
+                <option value="🐶">🐶</option>
+                <option value="🐹">🐹</option>
+                <option value="🐯">🐯</option>
+            </select>
+        <button type="button" onclick="selector()" style="padding: 5px 10px;font-size: 14px; background-color: #1f38ab; color: white;  border: none; cursor: pointer;border-radius: 5px;">Go</button>
+    </form>
+    
+    <script>
+        function selector() {
+            const petSelect = document.getElementById("pet");
+            const selectedPet = petSelect.value;
+            const petDiv = document.querySelector(".pet");
+            petDiv.textContent = selectedPet
+
+        }
+
+        let currentPet = "";
+
+        function selector() {
+        const petSelect = document.getElementById("pet");
+        const selectedPet = petSelect.value;
+        currentPet = selectedPet;
+        document.querySelector(".pet").textContent = selectedPet;
+        }
+
+    </script>
+
+    
+
 
     <div class="pet-container">
         <div class="pet-display">
             <div class="pet-circle">
-                <div class="pet">🐰</div>
+                <div class="pet"></div>
             </div>
+        
             
             <div class="pet-stats">
                 <div class="stat">
@@ -52,10 +91,12 @@
                 <div class="progress-container">
                     <div class="progress-bar energy-bar" id="energy-bar" style="width: 60%"></div>
                 </div>
-            </div>
-        </div>
+            </div> <!--pet stat-->
+        </div> <!--pet display-->
+        
         
         <div class="pet-actions">
+            
             <h3 class="action-title">Pet care</h3>
             <p class="action-description">Interact with your pet to improve its status values. Each day you log in, you can get extra rewards!</p>
             
@@ -76,7 +117,7 @@
                     <i class="fas fa-bed"></i>
                     <span>Rest (+20)</span>
                 </button>
-            </div>
+            </div> <!--action buttons-->
             
             <div class="status-container">
                 <h4 class="status-title">Status</h4>
@@ -89,9 +130,11 @@
                     <span>Login days: <span id="login-streak">1</span> days</span>
                 </div>
                 <div class="pet-message" id="pet-message">Welcome back!</div>
-            </div>
-        </div>
-    </div>
+            </div> <!--status container-->
+
+        </div> <!--pet actions-->
+
+    </div> <!--pet container-->
 
     <div class="notification" id="notification">Success!</div>
 
@@ -119,7 +162,7 @@
         const loginStreak = document.getElementById('login-streak');
         const petMessage = document.getElementById('pet-message');
         const notification = document.getElementById('notification');
-        const CooldownTime = 30000; 
+        const CooldownTime = 10000; 
         let Cooldown = false;
 
         
@@ -129,23 +172,18 @@
         const restBtn = document.getElementById('rest-btn');
 
 
-        // 更新显示
+        
         function updateDisplay() {
+             
+            // hungerBar.style.width = petStats.hunger + '%';
+            //happinessBar.style.width = petStats.happiness + '%';
+            //energyBar.style.width = petStats.energy + '%';
             
-            
-            // 更新进度条
-            hungerBar.style.width = petStats.hunger + '%';
-            happinessBar.style.width = petStats.happiness + '%';
-            energyBar.style.width = petStats.energy + '%';
-            
-            // 更新登录天数
             loginStreak.textContent = petStats.loginStreak;
             
-            // 根据状态更新心情
             updateMood();
         }
-
-        // 根据状态更新心情文本
+       
         function updateMood() {
             if (petStats.happiness >= 90) {
                 moodText.textContent = "Your pet is very happy today!";
@@ -158,7 +196,6 @@
             }
         }
 
-        // 显示通知
         function showNotification(message) {
             notification.textContent = message;
             notification.style.opacity = "1";
@@ -170,17 +207,17 @@
             }, 2000);
         }
 
-        // 更新宠物消息
+        
         function updatePetMessage(message) {
             petMessage.textContent = message;
         }
 
-        // 确保数值在0-100范围内
+        
         function clampValue(value) {
             return Math.max(0, Math.min(100, value));
         }
 
-        // 按钮事件处理
+        
         feedBtn.addEventListener('click', () => {
             petStats.hunger = clampValue(petStats.hunger + 10);
             petStats.energy = clampValue(petStats.energy + 3);
@@ -190,31 +227,17 @@
             showNotification("Ymm! ");
             updatePetMessage("I'm full now!");
 
-            // 动画效果
             document.querySelector('.pet').style.transform = "scale(1.2)";
             setTimeout(() => {
                 document.querySelector('.pet').style.transform = "scale(1)";
             }, 300);
-
-                    
+      
             if (feedCount >=maxFeed) {
                 showNotification("You don't have enough food!")
                 updatePetMessage('No more food for now!')
                 return;
             }
 
-
-            petStats.hunger = clampValue(petStats.hunger + 10);
-            petStats.energy = clampValue(petStats.energy - 5);
-            updateDisplay();
-            showNotification("Ymm! ");
-            updatePetMessage("I'm full now!");
-
-            // 动画效果
-            document.querySelector('.pet').style.transform = "scale(1.2)";
-            setTimeout(() => {
-                document.querySelector('.pet').style.transform = "scale(1)";
-            }, 300);
         });
 
 
@@ -227,7 +250,6 @@
             showNotification("Hooray! ");
             updatePetMessage("Let's play together!");
             
-            // 动画效果
             document.querySelector('.pet').style.animation = "none";
             setTimeout(() => {
                 document.querySelector('.pet').style.animation = "float 3s infinite ease-in-out";
@@ -238,7 +260,6 @@
             showNotification("Nice! ");
             updatePetMessage("I'm clean!");            
             
-            // 动画效果
             document.querySelector('.pet').style.transform = "rotate(10deg)";
             setTimeout(() => {
                 document.querySelector('.pet').style.transform = "rotate(-10deg)";
@@ -248,30 +269,50 @@
             }, 300);
         });
 
+        
         restBtn.addEventListener('click', () => {
+            if (Cooldown) {
+                showNotification("Resting... Please wait!");
+                return;
+            }
+
+            Cooldown = true;
+            restBtn.disabled = true;
+            restBtn.classList.add('disabled');
+            showNotification("Resting...");
+            
+            playBtn.disabled = true;
+            playBtn.classList.add('disabled');
+            cleanBtn.disabled = true;
+            cleanBtn.classList.add('disabled');
+            feedBtn.disabled = true;
+            feedBtn.classList.add('disabled');
+
             petStats.energy = clampValue(petStats.energy + 20);
             petStats.hunger = clampValue(petStats.hunger - 5);
             updateDisplay();
-            showNotification("Zzz... ");
-            updatePetMessage("I feel refreshed!");
+            updatePetMessage("Zzz...");
 
-            Cooldown = true;
-            setTimeout("CooldownProcess()", CooldownTime);
-            
-            function CooldownProcess() {
-
-            }
-                
-            })
-
-
-            
-            // 动画效果
             document.querySelector('.pet').textContent = "😴";
             setTimeout(() => {
-                document.querySelector('.pet').textContent = "🐰";
-            }, 1500);
-    
+                document.querySelector(".pet").textContent = currentPet;
+}, CooldownTime);
+
+
+            setTimeout(() => {
+                Cooldown = false;
+                restBtn.disabled = false;
+                restBtn.classList.remove('disabled');
+                playBtn.disabled = false;
+                playBtn.classList.remove('disabled');
+                cleanBtn.disabled = false;
+                cleanBtn.classList.remove('disabled');
+                foodNumber();
+
+                showNotification("You can rest again!");
+            }, CooldownTime);
+        });
+
 
         // 模拟每日登录
         function dailyLogin() {
@@ -281,22 +322,21 @@
             updateDisplay();
         }
 
-        // 状态随时间递减（模拟）
         function decreaseStatsOverTime() {
             setInterval(() => {
                 petStats.hunger = clampValue(petStats.hunger - 1);
                 petStats.happiness = clampValue(petStats.happiness - 0.5);
                 petStats.energy = clampValue(petStats.energy - 0.7);
                 updateDisplay();
-            }, 10000); // 每10秒减少一次
+            }, 10000); 
         }
 
         function tiredness() {
-            // 如果体力低于50，禁用“play”按钮
             if (petStats.energy < 50) {
                 playBtn.disabled = true;
                 playBtn.classList.add('disabled'); 
-            } else {
+            } 
+            else if (petStats.energy >= 50 & Cooldown == false) {
                 playBtn.disabled = false;
                 playBtn.classList.remove('disabled');
             }
@@ -315,7 +355,8 @@
             if (feedCount >= maxFeed) {
                 feedBtn.disabled = true;
                 feedBtn.classList.add('disabled'); 
-            } else {
+            } 
+            else if (feedCount < maxFeed & Cooldown == false ) {
                 feedBtn.disabled = false;
                 feedBtn.classList.remove('disabled');   
             }
@@ -336,12 +377,15 @@
         
 
         
-        // 初始化
+        
         updateDisplay();
         decreaseStatsOverTime();
 
         // 模拟每日登录（页面加载时）
         setTimeout(dailyLogin, 1000);
+
+
+        
     </script>
 </body>
 </html>
