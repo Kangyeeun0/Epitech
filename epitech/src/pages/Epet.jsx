@@ -1,247 +1,229 @@
-import React, { useEffect, useState } from 'react';
-import './epet.css';
-import Modal from '../component/Modal';
-import { useNavigate } from 'react-router-dom';
 
-export default function Epet({ activeTab, setActiveTab }) {
-    const navigate = useNavigate();
-    const [selectedPet, setSelectedPet] = useState('🐰');
-    const [feedCount, setFeedCount] = useState(0);
-    const maxFeed = 5;
-    const [cooldown, setCooldown] = useState(false);
-    const [displayedPet, setDisplayedPet] = useState(selectedPet);
-    const isLogin = localStorage.getItem('login');
-    const [isOpenModal, setIsOpenModal] = useState(false);
+import React, { useState, useEffect } from 'react';
+import './Epet.css';
 
-    const [petStats, setPetStats] = useState({
-        hunger: 55,
-        happiness: 60,
-        energy: 60,
-        loginStreak: 5,
+const Epet = () => {
+  const [currentPet, setCurrentPet] = useState('');
+  const [selectedPet, setSelectedPet] = useState('🐰');
+  const [feedCount, setFeedCount] = useState(0);
+  const [cooldown, setCooldown] = useState(false);
+  const maxFeed = 5;
+
+  const [petStats, setPetStats] = useState({
+    hunger: 75,
+    happiness: 90,
+    energy: 60,
+    loginStreak: 5,
+  });
+
+  const handleSelect = () => {
+    setCurrentPet(selectedPet);
+  };
+
+  const clampValue = value => Math.max(0, Math.min(100, value));
+
+  const updateStats = (changes) => {
+    setPetStats(prev => {
+      const updated = {
+        ...prev,
+        ...changes,
+      };
+      return {
+        ...updated,
+        hunger: clampValue(updated.hunger),
+        happiness: clampValue(updated.happiness),
+        energy: clampValue(updated.energy),
+      };
     });
+  };
 
-    useState(() => {
-        if (isLogin) {
-            return;
-        } else {
-            setIsOpenModal(true);
-        }
-    }, []);
+  const handleFeed = () => {
+    if (feedCount >= maxFeed) {
+      showNotification("You don't have enough food!");
+      updatePetMessage('No more food for now!');
+      return;
+    }
+    updateStats({
+      hunger: petStats.hunger + 10,
+      energy: petStats.energy + 3,
+      happiness: petStats.happiness + 1,
+    });
+    setFeedCount(feedCount + 1);
+    showNotification("Ymm!");
+    updatePetMessage("I'm full now!");
+    animatePet();
+  };
 
-    useEffect(() => {
-        setDisplayedPet(selectedPet);
-    }, [selectedPet]);
+ const handlePlay = () => {
+  if (petStats.energy < 50) {
+    showNotification("Not enough energy to play!");
+    updatePetMessage("I'm too tired to play...");
+    return; // 阻止后续执行
+  }
 
-    useEffect(() => {
-        // updateDisplay();
-        const interval = setInterval(() => {
-            setPetStats((prev) => ({
-                ...prev,
-                hunger: clampValue(prev.hunger - 1),
-                happiness: clampValue(prev.happiness - 0.5),
-                energy: clampValue(prev.energy - 0.7),
-            }));
-        }, 10000);
-        setTimeout(dailyLogin, 1000);
-        return () => clearInterval(interval);
-    }, []);
+  updateStats({
+    happiness: petStats.happiness + 15,
+    energy: petStats.energy - 10,
+    hunger: petStats.hunger - 5,
+  });
+  showNotification("Hooray!");
+  updatePetMessage("Let's play together!");
+  animatePet(true);
+};
 
-    function clampValue(value) {
-        return Math.max(0, Math.min(100, value));
+  const handleClean = () => {
+    showNotification("Nice!");
+    updatePetMessage("I'm clean!");
+    rotatePet();
+  };
+
+  const handleRest = () => {
+    if (cooldown) {
+      showNotification("Resting... Please wait!");
+      return;
     }
 
-    function dailyLogin() {
-        setPetStats((prev) => ({
-            ...prev,
-            loginStreak: prev.loginStreak + 1,
-            happiness: clampValue(prev.happiness + 5),
-        }));
-        showNotification('Login bonus: +5 happiness');
+    setCooldown(true);
+    showNotification("Resting...");
+    updateStats({
+      energy: petStats.energy + 20,
+      hunger: petStats.hunger - 5,
+    });
+    updatePetMessage("Zzz...");
+    setCurrentPet('😴');
+
+    setTimeout(() => {
+      setCurrentPet(selectedPet);
+    }, 10000);
+
+    setTimeout(() => {
+      setCooldown(false);
+      showNotification("You can rest again!");
+    }, 10000);
+  };
+
+  const showNotification = (message) => {
+    const note = document.getElementById('notification');
+    note.textContent = message;
+    note.style.opacity = '1';
+    note.style.top = '20px';
+    setTimeout(() => {
+      note.style.opacity = '0';
+      note.style.top = '0px';
+    }, 2000);
+  };
+
+  const updatePetMessage = (msg) => {
+    const el = document.getElementById('pet-message');
+    if (el) el.textContent = msg;
+  };
+
+  const animatePet = (play = false) => {
+    const el = document.querySelector('.pet');
+    if (play) {
+      el.style.animation = 'none';
+      setTimeout(() => {
+        el.style.animation = 'float 3s infinite ease-in-out';
+      }, 10);
+    } else {
+      el.style.transform = 'scale(1.2)';
+      setTimeout(() => {
+        el.style.transform = 'scale(1)';
+      }, 300);
     }
+  };
 
-    function showNotification(message) {
-        const notification = document.getElementById('notification');
-        if (!notification) return;
-        notification.textContent = message;
-        notification.style.opacity = '1';
-        notification.style.top = '20px';
-        setTimeout(() => {
-            notification.style.opacity = '0';
-            notification.style.top = '0px';
-        }, 2000);
-    }
+  const rotatePet = () => {
+    const el = document.querySelector('.pet');
+    el.style.transform = 'rotate(10deg)';
+    setTimeout(() => (el.style.transform = 'rotate(-10deg)'), 150);
+    setTimeout(() => (el.style.transform = 'rotate(0deg)'), 300);
+  };
 
-    function handleAction(type) {
-        if (type === 'feed') {
-            if (feedCount >= maxFeed) {
-                showNotification("You don't have enough food!");
-                updatePetMessage('No more food for now!');
-                return;
-            }
-            setPetStats((prev) => ({
-                ...prev,
-                hunger: clampValue(prev.hunger + 10),
-                energy: clampValue(prev.energy + 3),
-                happiness: clampValue(prev.happiness + 1),
-            }));
-            setFeedCount(feedCount + 1);
-            showNotification('Ymm!');
-            updatePetMessage("I'm full now!");
-        } else if (type === 'play') {
-            setPetStats((prev) => ({
-                ...prev,
-                happiness: clampValue(prev.happiness + 15),
-                energy: clampValue(prev.energy - 10),
-                hunger: clampValue(prev.hunger - 5),
-            }));
-            showNotification('Hooray!');
-            updatePetMessage("Let's play together!");
-        } else if (type === 'clean') {
-            showNotification('Nice!');
-            updatePetMessage("I'm clean!");
-        } else if (type === 'rest') {
-            if (cooldown) {
-                showNotification('Resting... Please wait!');
-                return;
-            }
-            setCooldown(true);
-            setDisplayedPet('😴'); // ← 여기서 이모지 바꿈
+  useEffect(() => {
+    const interval = setInterval(() => {
+      updateStats({
+        hunger: petStats.hunger - 1,
+        happiness: petStats.happiness - 0.5,
+        energy: petStats.energy - 0.7,
+      });
+    }, 10000);
 
-            setPetStats((prev) => ({
-                ...prev,
-                energy: clampValue(prev.energy + 20),
-                hunger: clampValue(prev.hunger - 5),
-            }));
-            updatePetMessage('Zzz...');
-            showNotification('Resting...');
+    return () => clearInterval(interval);
+  }, [petStats]);
 
-            setTimeout(() => {
-                setDisplayedPet(selectedPet); // ← 다시 원래 이모지로
-                setCooldown(false);
-                showNotification('You can rest again!');
-            }, 10000);
-        }
-    }
+  return (
+    <div>
+      <header>
+        <h1>Your Onl!ne Pet</h1>
+        <p className="subtitle">Have fun and take care of your pet!</p>
+      </header>
 
-    function updatePetMessage(message) {
-        const petMessage = document.getElementById('pet-message');
-        if (petMessage) petMessage.textContent = message;
-    }
+      <form onSubmit={(e) => e.preventDefault()}>
+        <label htmlFor="pet">Choose your pet:</label><br />
+        <select id="pet" value={selectedPet} onChange={(e) => setSelectedPet(e.target.value)}>
+          <option value="🐰">🐰</option>
+          <option value="🐱">🐱</option>
+          <option value="🐶">🐶</option>
+          <option value="🐹">🐹</option>
+          <option value="🐯">🐯</option>
+        </select>
+        <button type="button" onClick={handleSelect}>Go</button>
+      </form>
 
-    const onCloseModal = () => {
-        if (activeTab) {
-            setActiveTab('kpop');
-        }
-        setIsOpenModal(false);
-        navigate('/');
-    };
+      <div className="pet-container">
+        <div className="pet-display">
+          <div className="pet-circle">
+            <div className="pet">{currentPet}</div>
+          </div>
 
-    return (
-        <div className="pet-container">
-            <header>
-                <h1>Your Onl!ne Pet</h1>
-                <p className="subtitle">Have fun and take care of your pet!</p>
-            </header>
+          <div className="pet-stats">
+            <StatBar name="Fullness" value={petStats.hunger} icon="fa-utensils" />
+            <StatBar name="Happiness" value={petStats.happiness} icon="fa-smile" />
+            <StatBar name="Energy" value={petStats.energy} icon="fa-bolt" />
+          </div>
 
-            <form onSubmit={(e) => e.preventDefault()}>
-                <label htmlFor="pet">
-                    Choose your pet:
-                    <br />
-                </label>
-                <select id="pet" value={selectedPet} onChange={(e) => setSelectedPet(e.target.value)}>
-                    <option value="🐰">🐰</option>
-                    <option value="🐱">🐱</option>
-                    <option value="🐶">🐶</option>
-                    <option value="🐹">🐹</option>
-                    <option value="🐯">🐯</option>
-                </select>
-            </form>
-
-            <div className="pet-display">
-                <div className="pet-circle">
-                    <div className="pet">{displayedPet}</div>
-                </div>
-
-                <div className="pet-stats">
-                    {['hunger', 'happiness', 'energy'].map((stat) => (
-                        <React.Fragment key={stat}>
-                            <div className="stat">
-                                <div className="stat-name">
-                                    <i
-                                        className={`fas fa-${
-                                            stat === 'hunger' ? 'utensils' : stat === 'happiness' ? 'smile' : 'bolt'
-                                        }`}
-                                    ></i>
-                                    <span>{stat.charAt(0).toUpperCase() + stat.slice(1)}</span>
-                                </div>
-                                <div className="stat-value">{Math.round(petStats[stat])}</div>
-                            </div>
-                            <div className="progress-container">
-                                <div
-                                    className={`progress-bar ${stat}-bar`}
-                                    style={{ width: `${petStats[stat]}%` }}
-                                ></div>
-                            </div>
-                        </React.Fragment>
-                    ))}
-                </div>
-            </div>
-
-            <div className="pet-actions">
-                <h3 className="action-title">Pet care</h3>
-                <p className="action-description">
-                    Interact with your pet to improve its status values. Each day you log in, you can get extra rewards!
-                </p>
-
-                <div className="action-buttons">
-                    <button className="action-btn" onClick={() => handleAction('feed')}>
-                        <i className="fas fa-utensils"></i>
-                        <span> Feed (+10)</span>
-                    </button>
-                    <button className="action-btn" onClick={() => handleAction('play')}>
-                        <i className="fas fa-gamepad"></i>
-                        <span> Play (+15)</span>
-                    </button>
-                    <button className="action-btn" onClick={() => handleAction('clean')}>
-                        <i className="fas fa-bath"></i>
-                        <span> Clean (+5)</span>
-                    </button>
-                    <button className="action-btn" onClick={() => handleAction('rest')}>
-                        <i className="fas fa-bed"></i>
-                        <span> Rest (+20)</span>
-                    </button>
-                </div>
-
-                <div className="status-container">
-                    <h4 className="status-title">Status</h4>
-                    <div className="status-item">
-                        <i className="fas fa-heart heart"></i>
-                        <span id="mood-text">
-                            {petStats.happiness >= 90
-                                ? 'Your pet is very happy today!'
-                                : petStats.happiness >= 70
-                                ? 'Your pet is feeling good!'
-                                : petStats.happiness >= 50
-                                ? 'Your pet is okay, but could use some attention.'
-                                : 'Your pet is sad, please take care of it!'}
-                        </span>
-                    </div>
-                    <div className="status-item">
-                        <i className="fas fa-star login-streak"></i>
-                        <span>
-                            Login days: <span id="login-streak">{petStats.loginStreak}</span> days
-                        </span>
-                    </div>
-                    <div className="pet-message" id="pet-message">
-                        Welcome back!
-                    </div>
-                </div>
-            </div>
-
-            <div className="notification" id="notification">
-                Success!
-            </div>
-            {isOpenModal && <Modal isOpen={isOpenModal} onClose={onCloseModal} />}
         </div>
-    );
-}
+
+        <div className="pet-actions">
+          <h3 className="action-title">Pet care</h3>
+          <p className="action-description">Interact with your pet to improve its status values. Each day you log in, you can get extra rewards!</p>
+
+          <div className="action-buttons">
+            <button className="action-btn" onClick={handleFeed}>🍽 Feed</button>
+            <button className="action-btn" onClick={handlePlay}>🎮 Play</button>
+            <button className="action-btn" onClick={handleClean}>🛁 Clean</button>
+            <button className="action-btn" onClick={handleRest}>🛌 Rest</button>
+          </div>
+
+          <div className="status-container">
+            <h4 className="status-title">Status</h4>
+            <div className="status-item"><i className="fas fa-heart heart"></i> <span id="mood-text">Your pet is happy today!</span></div>
+            <div className="status-item"><i className="fas fa-star login-streak"></i> <span>Login days: {petStats.loginStreak}</span></div>
+            <div className="pet-message" id="pet-message">Welcome back!</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div className="notification" id="notification">Success!</div>
+    </div>
+  );
+};
+
+const StatBar = ({ name, value, icon }) => (
+  <>
+    <div className="stat">
+      <div className="stat-name">
+        <i className={`fas ${icon}`}></i>
+        <span>{name}</span>
+      </div>
+      <div className="stat-value">{Math.round(value)}%</div>
+    </div>
+    <div className="progress-container">
+      <div className={`progress-bar ${name.toLowerCase()}-bar`} style={{ width: `${value}%` }}></div>
+    </div>
+  </>
+);
+
+export default Epet;
