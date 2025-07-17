@@ -6,6 +6,11 @@ import Epet from './Epet';
 import Merchandise from './Merchandise';
 import './mainPage.css';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 const App = () => {
     const navigate = useNavigate();
@@ -26,7 +31,7 @@ const App = () => {
                 {activeTab === 'market' && <Merchandise />}
             </div>
 
-            <footer>
+            {/* <footer>
                 <div className="footer-content">
                     <div className="footer-section">
                         <h3>About Us</h3>
@@ -36,16 +41,16 @@ const App = () => {
                         </p>
                         <div className="social-icons">
                             <a href="#">
-                                <i className="fab fa-facebook-f"></i>
+                                <FontAwesomeIcon icon={faInstagram} />
                             </a>
                             <a href="#">
-                                <i className="fab fa-twitter"></i>
+                                <FontAwesomeIcon icon={faTwitter} />
                             </a>
                             <a href="#">
-                                <i className="fab fa-instagram"></i>
+                                <FontAwesomeIcon icon={faYoutube} />
                             </a>
                             <a href="#">
-                                <i className="fab fa-youtube"></i>
+                                <FontAwesomeIcon icon={faTiktok} />
                             </a>
                         </div>
                     </div>
@@ -57,10 +62,10 @@ const App = () => {
                                 <a href="#">Home</a>
                             </li>
                             <li>
-                                <a href="#">K-pop Info</a>
+                                <a onClick={() => navigate('/kpopInfo')}>K-pop Info</a>
                             </li>
                             <li>
-                                <a href="#">E-Pet</a>
+                                <a onClick={() => navigate('/ePet')}>E-Pet</a>
                             </li>
                             <li>
                                 <a href="#">Merchandise</a>
@@ -74,21 +79,24 @@ const App = () => {
                     <div className="footer-section">
                         <h3>Contact Us</h3>
                         <p>
-                            <i className="fas fa-map-marker-alt"></i> 123 Apgujeong-ro, Gangnam-gu, Seoul
+                            <i className="fas fa-map-marker-alt">kangyeeun55@gmail.com</i>
                         </p>
                         <p>
-                            <i className="fas fa-phone"></i> +82 2-1234-5678
+                            <i className="fas fa-phone">timotheezxl@outlook.com</i>
                         </p>
                         <p>
-                            <i className="fas fa-envelope"></i> contact@kpopfancommunity.com
+                            <i className="fas fa-envelope">2428155536@qq.com</i>
+                        </p>
+                        <p>
+                            <i className="fas fa-envelope">elena111zhang@gmail.com</i>
                         </p>
                     </div>
                 </div>
 
                 <div className="copyright">
-                    <p>&copy; 2023 KPOP FAN COMMUNITY. All rights reserved.</p>
+                    <p>&copy; 2025 KPOP FAN COMMUNITY. All rights reserved.</p>
                 </div>
-            </footer>
+            </footer> */}
         </>
     );
 };

@@ -8,6 +8,7 @@ import AboutUs from './pages/AboutUs';
 import Header from './component/Header';
 import Epet from './pages/Epet';
 import KpopInfo from './pages/KpopInfo';
+import Footer from './component/Footer';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/ePet" element={<Epet />} />
                     <Route path="/kpopInfo" element={<KpopInfo />} />
                 </Routes>
+                <Footer />
             </BrowserRouter>
         </div>
     );

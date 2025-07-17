@@ -129,7 +129,9 @@ export default function Epet({ activeTab, setActiveTab }) {
     }
 
     const onCloseModal = () => {
-        setActiveTab('kpop');
+        if (activeTab) {
+            setActiveTab('kpop');
+        }
         setIsOpenModal(false);
         navigate('/');
     };
