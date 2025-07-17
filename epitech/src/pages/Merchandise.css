@@ -1,0 +1,145 @@
+
+.column {
+    float: flex;
+    width: 33%;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    gap: 20px;
+    
+}
+
+
+
+#market {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  
+}
+
+
+.product-card {
+  background: rgba(255, 255, 255, 0.087);
+  border-radius: 16px;
+  padding: 20px;
+  
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+ 
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.product-card div {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.product-card button {
+    background-color: #ff4b8b;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    box-shadow: #ffffff 0px 0px 10px;
+    transition: 0.3s;
+  
+}
+
+
+.cart-icon {
+    color: #ffffff;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.087);
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+    
+    
+}
+
+.cart-icon:hover {
+    background-color:  #ff4b8b;
+
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 75, 139, 0.4);
+}
+
+.cart-box {
+    background-color: rgba(255, 255, 255, 0.087);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+
+}
+
+
+
+.checkout {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.087);
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+    margin: 10px
+    
+}
+
+.checkout:hover {
+    transition: 0.3s;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 75, 139, 0.4);
+    background-color: #ff4b8b;
+}
+
+.delete {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.087);
+    border-radius: 10px;
+    border: 0;
+    padding: 5px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.delete:hover {
+    transition: 0.3s;
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.226);
+}
+
+.total {
+    font-weight: bold;
+    margin: 10px;
+}
