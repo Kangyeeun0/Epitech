@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeroSection from './HeroSection';
 import Tabs from './Tabs';
 import KpopInfo from './KpopInfo';
@@ -11,6 +11,9 @@ const App = () => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('kpop');
     const isLogin = localStorage.getItem('login');
+    useEffect(() => {
+        console.log(activeTab);
+    }, [activeTab]);
 
     return (
         <>
@@ -19,7 +22,7 @@ const App = () => {
                 <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 {activeTab === 'kpop' && <KpopInfo />}
-                {activeTab === 'epet' && <Epet />}
+                {activeTab === 'epet' && <Epet activeTab={activeTab} setActiveTab={setActiveTab} />}
                 {activeTab === 'market' && <Merchandise />}
             </div>
 

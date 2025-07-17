@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import './info.css';
 
 const groupsData = [
     {
@@ -94,12 +95,12 @@ const groupsData = [
 ];
 
 const KpopInfo = () => {
-    const [activeFilter, setActiveFilter] = useState('All');
+    const [activeFilter, setAsctiveFilter] = useState('All');
     const [searchTerm, setSearchTerm] = useState('');
 
     // 필터 버튼 클릭 핸들러
     const handleFilterClick = (filter) => {
-        setActiveFilter(filter);
+        setAsctiveFilter(filter);
     };
 
     // 검색어 입력 핸들러
@@ -158,6 +159,78 @@ const KpopInfo = () => {
                                 </span>
                                 <p className="group-members">Members: {group.members.join(', ')}</p>
                                 <p>{group.description}</p>
+                                {group.name === 'BTS' && (
+                                    <button
+                                        onClick={() => window.open('https://ibighit.com/bts/eng/profile/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit BTS Official Site
+                                    </button>
+                                )}
+                                {group.name === 'BLACKPINK' && (
+                                    <button
+                                        onClick={() => window.open('https://www.blackpinkofficial.com/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit BLACKPINK Official Site
+                                    </button>
+                                )}
+                                {group.name === 'TWICE' && (
+                                    <button
+                                        onClick={() => window.open('https://twice.jype.com/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit TWICE Official Site
+                                    </button>
+                                )}
+                                {group.name === 'AESPA' && (
+                                    <button
+                                        onClick={() => window.open('https://www.aespa.com/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit AESPA Official Site
+                                    </button>
+                                )}
+                                {group.name === 'SEVENTEEN' && (
+                                    <button
+                                        onClick={() => window.open('https://www.seventeen-17.com/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit SEVENTEEN Official Site
+                                    </button>
+                                )}
+                                {group.name === 'Tomorrow X Together ' && (
+                                    <button
+                                        onClick={() => window.open('https://ibighit.com/txt/eng/profile/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit Tomorrow X Together Official Site
+                                    </button>
+                                )}
+                                {group.name === 'EXO' && (
+                                    <button
+                                        onClick={() => window.open('https://exo-jp.net/en/profile/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit EXO Official Site
+                                    </button>
+                                )}
+                                {group.name === 'red velvet' && (
+                                    <button
+                                        onClick={() => window.open('https://redvelvet-jp.net/zh-CHS/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit red velvet Official Site
+                                    </button>
+                                )}
+                                {group.name === 'riize' && (
+                                    <button
+                                        onClick={() => window.open('https://riizeofficial.jp/', '_blank')}
+                                        style={{ marginTop: '8px' }}
+                                    >
+                                        Visit riize Official Site
+                                    </button>
+                                )}
                             </div>
                         </div>
                     ))
@@ -166,5 +239,4 @@ const KpopInfo = () => {
         </div>
     );
 };
-
 export default KpopInfo;

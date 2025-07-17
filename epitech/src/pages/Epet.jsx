@@ -3,7 +3,7 @@ import './epet.css';
 import Modal from '../component/Modal';
 import { useNavigate } from 'react-router-dom';
 
-export default function Epet() {
+export default function Epet({ activeTab, setActiveTab }) {
     const navigate = useNavigate();
     const [selectedPet, setSelectedPet] = useState('🐰');
     const [feedCount, setFeedCount] = useState(0);
@@ -129,6 +129,7 @@ export default function Epet() {
     }
 
     const onCloseModal = () => {
+        setActiveTab('kpop');
         setIsOpenModal(false);
         navigate('/');
     };
