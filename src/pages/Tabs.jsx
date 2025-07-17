@@ -6,7 +6,7 @@ const Tabs = ({ activeTab, setActiveTab }) => {
         { id: 'epet', label: 'E-Pet' },
         { id: 'market', label: 'Merchandise' },
     ];
-
+    console.log(activeTab);
     return (
         <div className="tabs">
             {tabs.map((tab) => (

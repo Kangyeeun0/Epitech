@@ -17,7 +17,7 @@
 body {
     background: linear-gradient(135deg, #1a1a2e, #16213e);
     color: var(--light);
-    min-height: 100vh;
+    /* min-height: 100vh; */
     overflow-x: hidden;
 }
 
@@ -35,7 +35,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 200px;
     flex-direction: column;
     align-items: center;
 }

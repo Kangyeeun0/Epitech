@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const App = () => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('kpop');
+    const isLogin = localStorage.getItem('login');
 
     return (
         <>
@@ -42,12 +43,18 @@ const App = () => {
                     </a>
                     <a href="#about">About Us</a>
                 </div>
-                <div className="user-actions">
-                    <button className="btn btn-outline" onClick={() => navigate('/login')}>
-                        Login
-                    </button>
-                    <button className="btn btn-primary">Register</button>
-                </div>
+                {isLogin ? (
+                    ''
+                ) : (
+                    <div className="user-actions">
+                        <button className="btn btn-outline" onClick={() => navigate('/login')}>
+                            Login
+                        </button>
+                        <button className="btn btn-primary" onClick={() => navigate('/register')}>
+                            Register
+                        </button>
+                    </div>
+                )}
             </nav>
 
             <div className="container">

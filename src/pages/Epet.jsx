@@ -1,67 +1,77 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function Epet() {
-    const [feedback, setFeedback] = useState(null);
-    const [scale, setScale] = useState(1);
-
-    const handleAction = (action) => {
-        setScale(1.1);
-        setFeedback(`You just ${action} your pet!`);
-
-        setTimeout(() => setScale(0.9), 300);
-        setTimeout(() => setFeedback(null), 2000);
-    };
-
+    console.log('..');
     return (
-        <div id="epet" className="tab-content">
+        <div id="epet">
             <div className="pet-container">
                 <div className="pet-display">
                     <div className="pet-circle">
-                        <div className="pet" style={{ transform: `scale(${scale})` }}>
+                        <div className="pet" style={{ fontSize: '4rem' }}>
                             🐰
                         </div>
                     </div>
-                    {/* ... 상태 표시 ... */}
+                    <div className="pet-stats">
+                        <div className="stat">
+                            <div className="stat-name">Hunger</div>
+                            <div className="stat-value">75%</div>
+                        </div>
+                        <div className="stat">
+                            <div className="stat-name">Happiness</div>
+                            <div className="stat-value">90%</div>
+                        </div>
+                        <div className="stat">
+                            <div className="stat-name">Energy</div>
+                            <div className="stat-value">60%</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="pet-actions">
-                    {/* ... 제목 및 설명 ... */}
+                    <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: 'var(--accent)' }}>
+                        Take Care of Your Pet
+                    </h3>
+                    <p style={{ marginBottom: '1.5rem', color: '#ccc' }}>
+                        Interact with your pet to increase its stats. Log in daily for extra rewards!
+                    </p>
+
                     <div className="action-buttons">
-                        {['Feed', 'Play', 'Clean', 'Rest'].map((action) => (
-                            <button key={action} className="action-btn" onClick={() => handleAction(action)}>
-                                <i
-                                    className={`fas fa-${
-                                        {
-                                            Feed: 'utensils',
-                                            Play: 'gamepad',
-                                            Clean: 'bath',
-                                            Rest: 'bed',
-                                        }[action]
-                                    }`}
-                                ></i>
-                                <span>{action}</span>
-                            </button>
-                        ))}
+                        <button className="action-btn">
+                            <i className="fas fa-utensils"></i>
+                            <span>Feed</span>
+                        </button>
+                        <button className="action-btn">
+                            <i className="fas fa-gamepad"></i>
+                            <span>Play</span>
+                        </button>
+                        <button className="action-btn">
+                            <i className="fas fa-bath"></i>
+                            <span>Clean</span>
+                        </button>
+                        <button className="action-btn">
+                            <i className="fas fa-bed"></i>
+                            <span>Rest</span>
+                        </button>
                     </div>
 
-                    {feedback && (
-                        <div
-                            style={{
-                                position: 'fixed',
-                                bottom: 20,
-                                right: 20,
-                                background: 'var(--primary)',
-                                color: 'white',
-                                padding: '10px 20px',
-                                borderRadius: 5,
-                                zIndex: 1000,
-                            }}
-                        >
-                            {feedback}
-                        </div>
-                    )}
-
-                    {/* ... Pet Status ... */}
+                    <div
+                        style={{
+                            marginTop: '2rem',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            padding: '1.5rem',
+                            borderRadius: '10px',
+                        }}
+                    >
+                        <h4 style={{ marginBottom: '1rem', color: 'var(--primary)' }}>Pet Status</h4>
+                        <p>
+                            <i className="fas fa-heart" style={{ color: 'var(--primary)', marginRight: '10px' }}></i>
+                            Your pet is happy today!
+                        </p>
+                        <p>
+                            <i className="fas fa-star" style={{ color: 'gold', marginRight: '10px' }}></i>
+                            Login Streak: 5 days
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

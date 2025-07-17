@@ -154,7 +154,7 @@ const KpopInfo = () => {
                                 {group.name === 'BTS' && (
                                     <button
                                         onClick={() => window.open('https://ibighit.com/bts/eng/profile/', '_blank')}
-                                        style={{ marginTop: '8px'  }}
+                                        style={{ marginTop: '8px' }}
                                     >
                                         Visit BTS Official Site
                                     </button>
