@@ -74,8 +74,8 @@ export default function Modal({ isOpen, onClose }) {
             <ModalContainer>
                 <ModalBackdrop>
                     <ModalContent>
-                        <Message>로그인 후 이용해주세요!</Message>
-                        <ExitBtn onClick={onClose}>확인</ExitBtn>
+                        <Message>Please log in and use it!</Message>
+                        <ExitBtn onClick={onClose}>Confirm</ExitBtn>
                     </ModalContent>
                 </ModalBackdrop>
             </ModalContainer>

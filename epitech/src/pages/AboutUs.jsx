@@ -45,7 +45,7 @@ const AboutUs = () => {
                         origin: 'South Korea',
                         originClass: 'korea',
                         img: '/picture/강예은.jpg',
-                        desc: 'Our Korean culture expert with an innate understanding of K-pop trends and industry insights.',
+                        desc: 'A web developer who implements login capabilities and combines and manages detailed capabilities',
                         tags: ['Software'],
                     },
                     {
@@ -54,7 +54,7 @@ const AboutUs = () => {
                         origin: 'China',
                         originClass: 'china',
                         img: '/picture/张小蕾.jpg',
-                        desc: 'Our web developer who ensures our platform runs smoothly with the latest technology.',
+                        desc: 'a web developer who developed the aboutUs page',
                         tags: ['hydraulic structure', 'dancer'],
                     },
                     {
@@ -63,7 +63,7 @@ const AboutUs = () => {
                         origin: 'China',
                         originClass: 'china',
                         img: '/picture/余凌歌.jpg',
-                        desc: 'Our creative content creator who brings K-pop stories to life through engaging articles and visuals.',
+                        desc: 'A web developer who developed the kpopinfo page',
                         tags: ['electronic engineering'],
                     },
                     {
@@ -72,7 +72,7 @@ const AboutUs = () => {
                         origin: 'China',
                         originClass: 'china',
                         img: '/picture/张炜晨.jpg',
-                        desc: 'Our community manager who connects with fans and keeps our community vibrant and engaged.',
+                        desc: 'web developer who developed epet and merchandise pages.',
                         tags: ['Statistics'],
                     },
                 ].map((member, idx) => (
@@ -105,25 +105,6 @@ const AboutUs = () => {
                     </div>
                 ))}
             </section>
-
-            <footer>
-                <p>Connect with us on social media for the latest K-pop updates!</p>
-                <div className="social-icons">
-                    <a href="#">
-                        <FontAwesomeIcon icon={faInstagram} />
-                    </a>
-                    <a href="#">
-                        <FontAwesomeIcon icon={faTwitter} />
-                    </a>
-                    <a href="#">
-                        <FontAwesomeIcon icon={faYoutube} />
-                    </a>
-                    <a href="#">
-                        <FontAwesomeIcon icon={faTiktok} />
-                    </a>
-                </div>
-                <p style={{ marginTop: '20px', color: '#ffb6c1' }}>&copy; 2025 KPOP FUSION. All rights reserved.</p>
-            </footer>
         </div>
     );
 };

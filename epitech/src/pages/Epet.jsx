@@ -202,6 +202,7 @@ const Epet = () => {
             <div className="status-item"><i className="fas fa-star login-streak"></i> <span>Login days: {petStats.loginStreak}</span></div>
             <div className="pet-message" id="pet-message">Welcome back!</div>
           </div>
+
         </div>
       </div>
 
